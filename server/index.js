@@ -41,7 +41,7 @@ watchforexpires();
 app.use(express.json());
 app.use(cors()); // Apply CORS globally
 app.use(cookieparser());
-app.use('/', router);
+app.use('/api', router);
 
 app.get('/', (req, res) => {
     res.json("Hello world");
