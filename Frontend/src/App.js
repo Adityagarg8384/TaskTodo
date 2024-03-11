@@ -46,7 +46,7 @@ export default function Main({ res }) {
 
   const getdata = () => {
     try {
-      fetch(`task-todo-p1vc.vercel.app/api/v1/gettask/${userId}`,{
+      fetch(`task-todo-two.vercel.app/gettask/${userId}`,{
       })
         .then(async (response) => {
           const data = await response.json();
@@ -76,7 +76,7 @@ export default function Main({ res }) {
     const setreminder = newtask.remainder;
     const date = newtask.day;
     try {
-      fetch("task-todo-p1vc.vercel.app/api/v1/addtask", {
+      fetch(task-todo-two.vercel.app/addtask", {
         method: 'POST',
         body: JSON.stringify({
           userid:userId,
@@ -109,7 +109,7 @@ export default function Main({ res }) {
     cross=true;
     console.log(cross);
     try {
-      fetch(`task-todo-p1vc.vercel.app/api/v1/deletetask/${id}`, {
+      fetch(`task-todo-two.vercel.app/deletetask/${id}`, {
         method: 'DELETE',
         body: id,
       }).then(response => {
