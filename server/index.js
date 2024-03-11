@@ -53,6 +53,9 @@ app.use(cors(
 ));
 app.use(cookieparser());
 app.use('/api/v1', router);
+app.get('/',(req,res)=>{
+    res.json("Hello world");
+})
 app.listen(3001,()=>{
     console.log(`Server has started successfully at PORT 3001`);
 })
