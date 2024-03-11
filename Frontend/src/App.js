@@ -21,7 +21,7 @@ export default function Main({ res }) {
     setUserId(location.state.id);
     }
 
-    const socketInstance = io('https://task-todo-xi.vercel.app');
+    const socketInstance = io('ws://task-todo-xi.vercel.app');
     setSocket(socketInstance);
 
     socketInstance.on('connect', () => {
