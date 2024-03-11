@@ -13,7 +13,7 @@ const Register = () => {
 
     function Callbackend(){
         const t= JSON.stringify(data);
-        fetch("http://localhost:3001/api/v1/register", {
+        fetch("https://task-todo-two.vercel.app//register", {
             method:'POST',
             body:t,
             headers: {
