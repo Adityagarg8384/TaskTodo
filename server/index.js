@@ -46,13 +46,12 @@ watchforexpires();
 app.use(express.json());
 app.use(cors(
     {
-        origin:["https://task-todo-abcd.vercel.app/"],
+        origin:["https://task-todo-abcd.vercel.app"],
         methods:["POST", "GET", "DELETE"],
         credentials:true,
     }
 ));
 app.use(cookieparser());
-app.use('/api/v1', router);
 app.get('/',(req,res)=>{
     res.json("Hello world");
 })
