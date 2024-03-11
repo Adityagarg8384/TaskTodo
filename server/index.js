@@ -1,63 +1,57 @@
-const express= require("express");
-const mongoose= require("mongoose");
-const dbconnect= require("./config/database");
-const router= require("./routes/route");
-const cookieparser= require("cookie-parser");
-const app= express();
-require("dotenv").config();
-const cors= require("cors");
-const http= require("http");
-const {Server}= require("socket.io");
+const express = require("express");
+const mongoose = require("mongoose");
+const dbconnect = require("./config/database");
+const router = require("./routes/route");
+const cookieparser = require("cookie-parser");
+const cors = require("cors");
+const http = require("http");
+const { Server } = require("socket.io");
 const File = require("./models/file");
+
+require("dotenv").config();
+
+const app = express();
+const server = http.createServer(app);
+
+const io = new Server(server, {
+    cors: {
+        origin: 'https://task-todo-abcd.vercel.app',
+        methods: ["POST", "GET", "DELETE"],
+        credentials: true,
+    }
+});
 
 console.log(process.env.DATABASE_URL);
 
-const server= require('http').createServer(app);
-
-
-const io= new Server(server,{
-    cors:{
-        origin:'*',
-    }
+io.on("connection", (socket) => {
+    // Handle socket connections
 });
-server.listen(5000,()=>{
-    console.log("Successfully listen");
-})
 
-try{
-    io.on("connection", (socket)=>{
-    })
-}
-catch(err){
-    console.log(err);
-}
-
-async function watchforexpires(){
-    const changeStream= File.watch();
-    changeStream.on('change', async(change)=>{
-        if(change.operationType==='delete'){
-            io.emit('message',"Hello world");
+async function watchforexpires() {
+    const changeStream = File.watch();
+    changeStream.on('change', async (change) => {
+        if (change.operationType === 'delete') {
+            io.emit('message', "Hello world");
         }
-    })
+    });
 }
 
 watchforexpires();
 
 app.use(express.json());
-app.use(cors(
-    {
-        origin:["https://task-todo-abcd.vercel.app"],
-        methods:["POST", "GET", "DELETE"],
-        credentials:true,
-    }
-));
+app.use(cors()); // Apply CORS globally
 app.use(cookieparser());
-app.get('/',(req,res)=>{
+app.use('/api/v1', router);
+
+app.get('/', (req, res) => {
     res.json("Hello world");
-})
-app.listen(3001,()=>{
-    console.log(`Server has started successfully at PORT 3001`);
-})
+});
+
+const PORT = process.env.PORT || 3001;
+server.listen(PORT, () => {
+    console.log(`Server has started successfully at PORT ${PORT}`);
+});
+
 dbconnect();
 
 
