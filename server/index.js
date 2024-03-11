@@ -46,7 +46,7 @@ watchforexpires();
 app.use(express.json());
 app.use(cors(
     {
-        origin:["https://task-todo-yh66-dqf861tui-aditya-gargs-projects-7cf02f8e.vercel.app/"],
+        origin:["https://task-todo-abcd.vercel.app/"],
         methods:["POST", "GET", "DELETE"],
         credentials:true,
     }
