@@ -15,7 +15,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
     cors: {
-        origin: 'https://task-todo-abcd.vercel.app',
+        origin: 'https://task-todo-abcd-three.vercel.app/',
         methods: ["POST", "GET", "DELETE"],
         credentials: true,
     }
