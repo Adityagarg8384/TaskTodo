@@ -44,7 +44,13 @@ async function watchforexpires(){
 watchforexpires();
 
 app.use(express.json());
-app.use(cors());
+app.use(cors(
+    {
+        origin:["https://task-todo-yh66-dqf861tui-aditya-gargs-projects-7cf02f8e.vercel.app/"],
+        methods:["POST", "GET", "DELETE"],
+        credentials:true,
+    }
+));
 app.use(cookieparser());
 app.use('/api/v1', router);
 app.listen(3001,()=>{
