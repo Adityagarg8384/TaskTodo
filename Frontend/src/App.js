@@ -3,7 +3,7 @@ import Tasks from './components/tasks'
 import React,{ useState, useEffect } from "react"
 import Addtask from './components/addtask'
 import styled from 'styled-components'
-import io from 'socket.io-client';
+// import io from 'socket.io-client';
 import { useLocation } from 'react-router-dom'
 
 var cross= false;
@@ -21,7 +21,7 @@ export default function Main({ res }) {
     setUserId(location.state.id);
     }
 
-    const socketInstance = io('wss://task-todo-xi.vercel.app');
+    const socketInstance = io();
     setSocket(socketInstance);
 
     socketInstance.on('connect', () => {
