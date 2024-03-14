@@ -16,11 +16,13 @@ export default function Main({ res }) {
   const location= useLocation();
   const [userId, setUserId]= useState(0);
 
-  useEffect(() => {
+  useEffect(()=>{
     if(location.state!==null){
     setUserId(location.state.id);
     }
+  }, [location.state]);
 
+  useEffect(() => {
     const socketInstance = io();
     // setSocket(socketInstance);
 
