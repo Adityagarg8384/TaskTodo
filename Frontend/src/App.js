@@ -22,7 +22,7 @@ export default function Main({ res }) {
     }
 
     const socketInstance = io();
-    setSocket(socketInstance);
+    // setSocket(socketInstance);
 
     socketInstance.on('connect', () => {
       console.log("Connected to server throught io");
