@@ -26,7 +26,7 @@ export default function Main({ res }) {
 
     socketInstance.on('connect', () => {
       console.log("Connected to server throught io");
-    })
+    },[])
 
     socketInstance.on('message', (data) => {
       console.log("Hello world");
