@@ -10,9 +10,9 @@ var cross= false;
 export default function Main({ res }) {
   const [showaddtask, setShowAddTask] = useState(true);
   const [tasks, setTasks] = useState("");
-  const [socket, setSocket] = useState(null);
+  // const [socket, setSocket] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const audioRef = React.useRef(null);
+  // const audioRef = React.useRef(null);
   const location= useLocation();
   const [userId, setUserId]= useState(0);
 
@@ -35,14 +35,14 @@ export default function Main({ res }) {
       setIsPlaying(true);
 
       
-      const timeoutId = setTimeout(() => {
+      setTimeout(() => {
         setIsPlaying(false);
       }, 20000);
     }
       cross=false;
       console.log("Received some data from server" + data);
     })
-  }, [])
+  },)
 
   const getdata = () => {
     try {
