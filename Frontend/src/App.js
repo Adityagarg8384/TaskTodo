@@ -14,12 +14,12 @@ export default function Main({ res }) {
   const [isPlaying, setIsPlaying] = useState(false);
   // const audioRef = React.useRef(null);
   const location= useLocation();
-  const [userId, setUserId]= useState(0);
+  // const [userId, setUserId]= useState(0);
 
   useEffect(() => {
-    if(location.state!==null){
-    setUserId(location.state.id);
-    }
+    // if(location.state!==null){
+    // setUserId(location.state.id);
+    // }
 
     const socketInstance = io();
     // setSocket(socketInstance);
