@@ -9,7 +9,7 @@ const Header = ({onAdd}) => {
     }
   return (
     <Main className='header'>
-        <h1>Course tracker</h1>
+        <h1>Task Todo</h1>
         <Link to="Login">
         <Button color='green' title='add' onClick={onclick} />
         </Link>
