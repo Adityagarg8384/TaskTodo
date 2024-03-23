@@ -4,7 +4,7 @@ import styled from 'styled-components'
  const Button = ({color, text, onclick}) => {
   return (
     <But  onClick={onclick} style= {{backgroundColor: color}} >
-        Add
+        Login
     </But>
   )
 }
