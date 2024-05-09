@@ -57,6 +57,7 @@ exports.gettask = async (req, res) => {
         
         File.find({userid: req.params.id})
             .then(response => {
+                console.log(response);
                 res.status(200).json({
                     success: true,
                     data: response,
