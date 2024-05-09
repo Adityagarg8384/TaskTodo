@@ -29,8 +29,9 @@ exports.addtask = async (req, res) => {
         let newDateString = originalDate.toISOString();
 
         console.log(newDateString);
+        date=t;
 
-        const response = await File.create({userid, id, task, setreminder, newDateString });
+        const response = await File.create({userid, id, task, setreminder, date });
         
         console.log(response);
 
