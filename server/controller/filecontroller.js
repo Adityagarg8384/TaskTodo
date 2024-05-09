@@ -25,7 +25,10 @@ exports.addtask = async (req, res) => {
                     originalDate.setHours(originalDate.getHours() + 24);
         }
         
+        
         let newDateString = originalDate.toISOString();
+
+        console.log(newDateString);
 
         const response = await File.create({userid, id, task, setreminder, newDateString });
         
